@@ -10,8 +10,6 @@ char output_headline[100]={"学号-------名字--性别--学院---班级--平均
 char show_headline1[250]={"学号------------------姓名---------性别--------------------学院------------------------班级-------分数-------2---------3---------4-----------5-----------6-----------7-------号码-------平均分\n"};
 char Stuenden_headline[100];
 char Teacher_headline[100];
-//{"学号-------姓名------性别--学院---班级-------分数2--3--4--5--6--7-号码\n"};
-//学生结构体（读）
 struct Students1{
     char id[30];
     char name[30];
@@ -24,18 +22,12 @@ struct Students1{
     double sum;
     
 }student1[Student_number];
-// 老师的结构体
 struct Teachers{
-    
     char name[30];
     char  id[30];
     double sore[Student_number];
     char sex[20];
-    
 }teacher[Teacher_number];
-
-
-//给结构体排序
 bool cmp( Students1  &p1,Students1 &p2)
 {
     if(p1.avg>p2.avg)
@@ -52,15 +44,12 @@ bool cmp( Students1  &p1,Students1 &p2)
         {
             return 0;
         }
-        
     }
     else
     {
         return 0;
     }
 }
-
-
 int main()
 {
     FILE *p1=NULL;
@@ -112,7 +101,6 @@ int main()
     {
         sort(student1[i].sore,student1[i].sore+Teacher_number);
         student1[i].sum=0;
-        
         for(j=1;j<Teacher_number-1;j++)
         {
             student1[i].sum+=student1[i].sore[j];
@@ -153,12 +141,10 @@ int main()
         fprintf(pp,"%15lld",student1[i].phone);
         fprintf(pp,"%10.2f",student1[i].avg);
         fprintf(pp,"\n\n");
-        
     }
     fclose(pp);
     return 0;
 }
-
 //学生表格
 //学号------姓名---性别--学院----班级------号码
 //2018110  邱健军  男    机械      机械工程  1008611
